@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{{ url_for('static', filename='signup.css') }}" rel="stylesheet">
+    <title>signup</title>
+  </head>
+  <body>
+    <div class="signupContainer">
+      <div class="signupBox">
+        <header>계정을 생성하세요</header>
+        <form method="POST" action="/signup">
+          <div class="formItem">
+            <label htmlFor="email">이메일</label>
+            <input id="email" name="email" required />
+          </div>
+          <div class="formItem">
+            <label htmlFor="password">비밀번호</label>
+            <input id="password" name="password" type="password" required />
+          </div>
+          <div class="formItem">
+            <label htmlFor="name">이름</label>
+            <input id="name" name="username" required />
+          </div>
+          <div class="formItem">
+            <label htmlFor="age">나이</label>
+            <input id="age" name="age" required />
+          </div>
+          <div class="buttonWrapper">
+            <button type="submit" type="primary" shape="round">가입하기</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+    {% block content %}
+    <div class="signupContainer">
+        <div class="signupBox">
+          <form method="POST" action="/user">
+            <div class="formItem">
+                <label htmlFor="medicine_id">번호</label>
+                <input id="medicine_id" name="medicine_id" required />
+            </div>
+            <div class="formItem">
+              <label htmlFor="user_itemname">제품명</label>
+              <input id="user_itemname" name="user_itemname" required />
+            </div>
+            <div class="formItem">
+              <label htmlFor="user_efcyqesitm">효능</label>
+              <input id="user_efcyqesitm" name="user_efcyqesitm" type="user_efcyqesitm" required />
+            </div>
+            <div class="formItem">
+              <label htmlFor="user_usemethodqesitm">사용법</label>
+              <input id="user_usemethodqesitm" name="user_usemethodqesitm" required />
+            </div>
+            <div class="buttonWrapper">
+              <button type="submit" type="primary" shape="round">추가하기</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        <!-- Main Content-->
+        <main class="mb-4">
+            {% if user_medicine_list %}
+            <table class="table11">
+              <thead>
+                <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">제품명</th>
+                  <th scope="col">효능</th>
+                  <th scope="col">사용법</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for medicine in user_medicine_list %}
+                <tr>
+                    <td>{{ medicine.medicine_id }}</td>
+                    <td>{{ medicine.user_itemname }}</td>
+                    <td>{{ medicine.user_efcyqesitm }}</td>
+                    <td>{{ medicine.user_usemethodqesitm }}</td>
+                    <td>
+                        <a href="{{url_for('main.delete', user_target_id=medicine.user_target_id)}}" class="btn btn-sm btn-danger">삭제</a>
+                    </td>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% endif %}   
+        </main>
+    {% endblock content %}
+         
